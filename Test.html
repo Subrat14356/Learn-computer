@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Quiz Game</title>
+</head>
+
+<body>
+  
+   <div class="quiz-container">
+    <div id="quiz">
+      <div class="question-container">
+        <h2 id="question">Question text</h2>
+        <div class="options">
+         <button class="option" onclick="selectOption(0)">Option 1</button>
+          <button class="option" onclick="selectOption(1)">Option 2</button>
+          <button class="option" onclick="selectOption(2)">Option 3</button>
+          <button class="option" onclick="selectOption(3)">Option 4</button>
+        </div>
+      </div>
+      <div class="quiz-footer">
+        <div id="progress-bar"></div>
+        <p id="score">Score: 0</p>
+      </div>
+    </div>
+  </div>
+  <div class="e">
+
+  </div>
+  <style>
+  
+  body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background-color: #e07272;
+  margin: 0;
+}
+.quiz-container {
+  background: rgb(238, 139, 208);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 100%;
+  overflow: hidden;
+  margin-left:20px;
+  margin-top: 50px;
+}
+
+#quiz {
+  padding: 20px;
+}
+
+.question-container {
+  margin-bottom: 20px;
+  
+
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 5px;
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option:hover {
+  background-color: #ccc;
+ 
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#progress-bar {
+  height: 10px;
+  background-color: #4caf50;
+  width: 0;
+  border-radius: 5px;
+  transition: width 0.3s;
+}
+
+#score {
+  font-size: 18px;
+}
+  
+
+
+
+
+
+  </style>
+  <script>
+  
+
+  const questions = [
+  {
+    question: "The Computer is an electronic devices which tredenuce speed with ________ capcity.?",
+    options: ["Nocapacity", "Low", "Great", "high"],
+    answer: 2
+    },
+  {
+    question: "What  Three Device of Computer We can use______?",
+    options: ["Output-processing-input", "Input-processing-output", "processing-input-output", "output-input-processing"],
+    answer: 1
+    },
+  {
+    question: "What is not an input device?",
+    options: ["Monitor", "Keybord", "Mouse", "OMR"],
+    answer: 0
+    },
+  {
+    question: "Who many keys are aviable on keybords_______?",
+    options: ["103", "99", "170", "106"],
+    answer: 3
+  },
+  {
+    question: "Who Many Types of keys are present on Key Bord_______?",
+    options: ["1", "2", "3", "4"],
+    answer: 2
+    },
+  {
+    question: "What is not a Spical Key_____?",
+    options: ["Home", "End", "PageUp", "1"],
+    answer: 3
+    },
+{
+    question: "What is not a funcational key______?",
+    options: ["2", "F1", "F2", "F4"],
+    answer: 0
+    },
+  {
+    question: "What is not a Typewrite key_______?",
+    options: ["A", "B", "Enter", "9"],
+    answer: 2
+    },
+{
+    question: "Who Many types Of Mouse Are Aviable Present Day______?",
+    options: ["6", "5", "1", "4"],
+    answer: 1
+    },
+{
+    question: "What is Brain of computer________?",
+    options: ["Mouse", "Keybord", "CPU", "OMR"],
+    answer: 2
+    },
+{
+    question: "What is the Fullfrom of CPU________-________-______?",
+    options: ["Central Processing Unit"
+, "Center process unit", "center progress unit", "center procissing unit"],
+    answer: 0
+    },
+  {
+    question: "The _________ unit act as cns( central nervous system) of computer.?",
+    options: ["Alu","Control", "IR", "Input"],
+    answer: 1
+    },
+  {
+    question: " The main function of arithmetic and logical unit is that is Execute the data in unit_________?",
+    options: ["Control","input", "output", "Alu"],
+    answer: 3
+    },
+  {
+    question: "Generally ___________ is temporary memory which holds the data for some time again transfer the data from one device to another device.?",
+    options: ["Alu", "Internal resistor", "control", "Output"],
+    answer: 1
+    },
+  {
+    question: "The output uint result of the information that we get in the ________ that is known as soft copy.?",
+    options: ["Monitor", "Printer", "keybord","Mouse"],
+    answer: 0
+    },
+  {
+    question: "Where as the results of the information that we are get in the _______ that is known as hard copy.",
+    options: ["Monitor", "lcd", "printer", "led"],
+    answer: 2
+    },
+  {
+    question: "Who  many Type of Monitor are aviable______?",
+    options: ["1", "6", "5", "4"],
+    answer: 3
+    },
+  {
+    question: "What is Non impact Printer_____?",
+    options: ["Inkjet", "Dotmatrix", "chain", "Drum"],
+    answer: 0
+    },
+  {
+    question: "Window 7 system are PublishedIn the Years________?",
+    options: ["2005", "2009", "2001", "2000"],
+    answer: 1
+    },
+    
+{
+    question: "Window 11 system are PublishedIn the Years________?",
+    options: ["2006", "2008", "2021", "2022"],
+    answer: 2
+    },
+    {
+    question: "Window vista system are PublishedIn the Years________?",
+    options: ["2006", "2002", "2004", "2002"],
+    answer: 0
+    },
+    {
+    question: "_______ was earlier caculating devices.?",
+    options: ["JhonNephir", "Abacus", "pascaline", "Different Engine"],
+    answer: 1
+    },
+    {
+    question: "In the year _______ Napier's Bones inventelly (scottishland)mathematicn Jhon Napier's.?",
+    options: ["1608", "1607", "1619", "1617"],
+    answer: 3
+    },
+  
+    {
+    question: "In _____ Blasine passcal Develop byone caculation it is called passcaline caculator.",
+    options: ["1642", "1635", "1647", "1645"],
+    answer: 0
+    },
+    {
+    question: "Who is The Father of Computer____________?",
+    options: ["Charless Babbage", "JhonNephire", "BalshinPasscaline", "Abacus"],
+    answer: 0
+    },
+    {
+    question: "In _____charless Babbage Participate the different engine those different engine use to mathematical caculation look like.",
+    options: ["1803", "1999", "1800", "1823"],
+    answer: 2
+    },
+    {
+    question: "Which attach of analytical engine in year _______ so that charlesBabbage is called Father of computer.",
+    options: ["1845", "1832", "1834", "1833"],
+    answer: 3
+    },
+
+    {
+    question: "First Generation Computer Start&End In the Years_________",
+    options: ["1940-1956", "1942-1956", "1940-2001", "1951-2000"],
+    answer: 0
+    },
+    {
+    question: "second Generation Computer Start&End In the Years_________",
+    options: ["1940-1956", "1947-1959", "1956-1963", "1955-2000"],
+    answer: 2
+    },
+    {
+    question: "Third Generation Computer Start In the Years_________",
+    options: ["1942", "1963", "1978", "1951"],
+    answer: 1
+    },
+    {
+    question: "Fourth Generation Computer Start In the Years_________",
+    options: ["1956", "1942", "2001", "1972"],
+    answer: 3
+    },
+    {
+    question: "Fifth Generation Computer Start Inthe Years_________",
+    options: ["1940", "1948", "1973", "2021"],
+    answer: 2
+    }
+
+  ];
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function loadQuestion() {
+  const questionElement = document.getElementById('question');
+  const options = document.querySelectorAll('.option');
+  const currentQuestion = questions[currentQuestionIndex];
+
+  questionElement.textContent = currentQuestion.question;
+  options.forEach((option, index) => {
+    option.textContent = currentQuestion.options[index];
+    option.style.backgroundColor = '#e1e1e1';
+  });
+}
+
+function selectOption(selectedOptionIndex) {
+  const currentQuestion = questions[currentQuestionIndex];
+  const options = document.querySelectorAll('.option');
+  if (selectedOptionIndex === currentQuestion.answer) {
+    score++;
+    options[selectedOptionIndex].style.backgroundColor = '#4caf50';
+  } else {
+    options[selectedOptionIndex].style.backgroundColor = '#f44336';
+  }
+  document.getElementById('score').textContent = `Score: ${score}`;
+  currentQuestionIndex++;
+  setTimeout(() => {
+    if (currentQuestionIndex < questions.length) {
+      updateProgressBar();
+      loadQuestion();
+    } else {
+      showFinalScore();
+    }
+  }, 1000);
+}
+
+function updateProgressBar() {
+  const progressBar = document.getElementById('progress-bar');
+  const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
+  progressBar.style.width = `${progressPercentage}%`;
+}
+
+function showFinalScore() {
+  const quizContainer = document.querySelector('.quiz-container');
+  quizContainer.innerHTML = `<h2>Your final score is ${score} out of ${questions.length}</h2>`;
+}
+
+window.onload = () => {
+  loadQuestion();
+  updateProgressBar();
+};
+  
+  </script>
+</body>
+
+</html>
