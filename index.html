@@ -50,6 +50,53 @@
                 <p>How the Input Unit sends data to the Computer System.</p>
                 <a href="#" onclick="navigateTo('type.html')">Start Now</a>
             </div>
+  <div class="course">
+                <h3>Processing Unit</h3>
+                <p>Procesing Unit How To Process The Data on Computer System.</p>
+                <a href="#" onclick="navigateTo('pro.html')">Start Now</a>
+            </div>
+            <div class="course">
+                <h3>Output Unit</h3>
+                <p>Output Unit How Its Can Get Result on Moniter.</p>
+                <a href="#" onclick="navigateTo('out.html')">Start Now</a>
+            </div>
+            <div class="course">
+                <h3>History </h3>
+                <p>Now You See History Of Computer.</p>
+                <a href="#" onclick="navigateTo('hi.html')">Start Now</a>
+            </div>
+        <div class="course">
+            <h3>Generation </h3>
+            <p>Now You See Genration Of Computer. in1940 to till.</p>
+            <a href="#" onclick="navigateTo('g.html')">Start Now</a>
+        </div>
+
+        <div class="course">
+            <h3>Upgrade </h3>
+            <p>Upgrade Of Window System. in1985 to 2021.</p>
+            <a href="#" onclick="navigateTo('his.html')">Start Now</a>
+        </div>
+
+        <div class="course">
+            <h3>Botting </h3>
+            <p>Booting system is only to ony ms dos programme.</p>
+            <a href="#" onclick="navigateTo('boot.html')">Start Now</a>
+        </div>
+
+
+        <div class="course">
+            <h3>CHARACTERS OF COMPUTER</h3>
+            <p>CHARACTERS OF COMPUTER</p>
+            <a href="#" onclick="navigateTo('chart.html')">Start Now</a>
+        </div>
+        <div class="course">
+            <h3>UNIT OF MEASUREMENT </h3>
+            <p>UNIT OF MEASUREMENT</p>
+            <a href="#" onclick="navigateTo('mn.html')">Start Now</a>
+        </div>
+
+
+            
         </div>
     </section>
     
@@ -62,7 +109,203 @@
         <a href="#" onclick="navigateTo('privacy-policy.html')">Privacy Policy</a> | 
         <a href="#" onclick="navigateTo('terms.html')">Terms & Conditions</a>
     </footer>
-    
+      <style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+        background-color: #222;
+        color: red;
+    }
+
+    /* Header & Navigation */
+    header {
+        background-color: #0073e6;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    #darkModeToggle, #menuToggle {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        padding: 5px 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    #menuToggle {
+        right: 60px;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        background: #005bb5;
+        margin: 0;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: inline;
+        margin: 0 10px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive Navigation */
+    @media (max-width: 768px) {
+        #navMenu {
+            display: none;
+            flex-direction: column;
+            background: #005bb5;
+            width: 30%;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+
+        #navMenu.show {
+            display: flex;
+        }
+
+        nav ul li {
+            display: block;
+            margin: 10px 0;
+        }
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 40px 20px;
+        background: url('assets/images/hero-bg.jpg') no-repeat center center/cover;
+        color: transprent;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #ff9800;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .hero .btn:hover {
+        background: #e68900;
+    }
+
+    /* Courses Section */
+    .courses {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .course-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Courses Section */
+.courses {
+    padding: 30px 20px;
+    text-align: center;
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: auto;
+    border: 2px solid #f6f7f8; /* Optional: adds a border */
+}
+
+/* Custom Scrollbar */
+.courses::-webkit-scrollbar {
+    width: 8px;
+}
+
+.courses::-webkit-scrollbar-thumb {
+    background-color: #0073e6;
+    border-radius: 10px;
+}
+
+.courses::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+}
+.course {
+        background: white;
+        width: 250px;
+        margin: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        transition: transform 0.3s;
+    }
+
+    .course:hover {
+        transform: scale(1.05);
+    }
+
+    .course a {
+        display: block;
+        padding: 8px;
+        background: #0073e6;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .course a:hover {
+        background: #005bb5;
+    }
+
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: #0073e6;
+        color: white;
+    }
+
+    footer a {
+        color: #ffcc00;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+    </style>
     <script>
     // Dark Mode Toggle
     document.getElementById('darkModeToggle').addEventListener('click', () => {
