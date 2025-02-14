@@ -347,6 +347,15 @@ function handleErr(msg, url, l) {
   alert(txt);
   return true;
 }
+onerror = handleErr;
+var txt = "";
+function handleErr(msg, url, l) {
+  txt = "There was Comin soon....\n\n";
+ 
+  txt += "Click OK to continue.\n\n";
+  alert(txt);
+  return true;
+}
 
 function run() {
    adddlert("Welcome guest!");
