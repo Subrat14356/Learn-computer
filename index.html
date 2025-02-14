@@ -16,9 +16,9 @@
         <nav>
             <ul id="navMenu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#" onclick="navigateTo('auth.html')">HTML</a></li>
-                <li><a href="#"onclick="navigateTo('auth.html')">CSS</a></li>
-                <li><a href="#"onclick="navigateTo('auth.html')">JavaScript</a></li>
+                <li><a href="#" onclick="navigateTo('ht.html')">HTML</a></li>
+                <li><a href="#"onclick="navigateTo('cs.html')">CSS</a></li>
+                <li><a href="#"onclick="navigateTo('js.html')">JavaScript</a></li>
                 <li><a href="#" onclick="run()">C++</a></li>
                 <li><a href="#" onclick="run()">Python</a></li>
                 <li><a href="#" onclick="run()">Forum</a></li>
@@ -31,8 +31,8 @@
 
     <section class="hero">
         <h2>Learn Computer Courses for Free!</h2>
-        <p>Start learning HTML, CSS, JavaScript, Computer History ,Generation ,Upgrade Window System.</p>
-        <a href="#" onclick="navigateTo('Computer.html')"class="btn">Start Learning</a>
+        <p>Start learning HTML, CSS, JavaScript, Computer History ,Generation ,Upgrade Window System.Test You're Brain. </p>
+        <a href="#" onclick="navigateTo('Test.html')"class="btn">Start Learning</a>
     </section>
 
     <section class="courses">
@@ -300,10 +300,22 @@
 
    <script>
 
-function run(){
-window.alert=(Coming....);
+onerror = handleErr;
+var txt = "";
+function handleErr(msg, url, l) {
+  txt = "There was coming soon....\n\n";
+  txt += "Click OK to continue.\n\n";
+  alert(txt);
+  return true;
 }
 
+function run() {
+   adddlert("Welcome guest!");
+}
+
+
+
+       
     // Dark Mode Toggle
     document.getElementById('darkModeToggle').addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
