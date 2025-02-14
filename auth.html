@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-container" id="loginForm">
+            <h2>Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-container" id="registerForm" style="display: none;">
+            <h2>Register</h2>
+            <input type="text" id="registerName" placeholder="Full Name">
+            <input type="email" id="registerEmail" placeholder="Email">
+            <input type="password" id="registerPassword" placeholder="Password">
+            <button onclick="register()">Register</button>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+    </div>
+
+    <style>
+    body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #0c3241, #0c9148);
+    color: white;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    margin-left: -8px;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #ff5733;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff9f33;
+}
+
+p {
+    margin-top: 10px;
+}
+
+a {
+    color: #00c6ff;
+    text-decoration: none;
+}
+    
+    </style>
+    <script>
+    
+    function showRegister() {
+    document.getElementById("loginForm").style.display = "none";
+    document.getElementById("registerForm").style.display = "block";
+}
+
+function showLogin() {
+    document.getElementById("loginForm").style.display = "block";
+    document.getElementById("registerForm").style.display = "none";
+}
+
+function register() {
+    let name = document.getElementById("registerName").value;
+    let email = document.getElementById("registerEmail").value;
+    let password = document.getElementById("registerPassword").value;
+
+    if (name === "" || email === "" || password === "") {
+        alert("Please fill all fields!");
+        return;
+    }
+
+    localStorage.setItem("user", JSON.stringify({ name, email, password }));
+    alert("Registration Successful! Please Login.");
+    showLogin();
+}
+
+function login() {
+    let email = document.getElementById("loginEmail").value;
+    let password = document.getElementById("loginPassword").value;
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+        alert("No registered user found. Please register first.");
+        return;
+    }
+
+    if (user.email === email && user.password === password) {
+        alert("Login Successful!");
+        window.location.href = "index.html"; // Redirect to homepage
+    } else {
+        alert("Invalid credentials. Try again!");
+    }
+}
+    </script>
+
+</body>
+</html>

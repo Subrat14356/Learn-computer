@@ -1,24 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Quiz Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .quiz-container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+      padding: 20px;
+    }
+    h2 {
+      font-size: 22px;
+      color: #333;
+    }
+    .options button {
+      background: #6a89cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin: 8px 0;
+      padding: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+    }
+    .options button:hover {
+      background: #4a69bd;
+    }
+    .quiz-footer {
+      margin-top: 20px;
+    }
+    #progress-bar {
+      height: 10px;
+      background: #4caf50;
+      width: 0;
+      border-radius: 5px;
+      transition: width 0.3s;
+    }
+    #score {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
-
 <body>
-  
-   <div class="quiz-container">
+  <div class="quiz-container">
     <div id="quiz">
-      <div class="question-container">
-        <h2 id="question">Question text</h2>
-        <div class="options">
-         <button class="option" onclick="selectOption(0)">Option 1</button>
-          <button class="option" onclick="selectOption(1)">Option 2</button>
-          <button class="option" onclick="selectOption(2)">Option 3</button>
-          <button class="option" onclick="selectOption(3)">Option 4</button>
-        </div>
+      <h2 id="question">Loading question...</h2>
+      <div class="options">
+        <button class="option" onclick="selectOption(0)">Option 1</button>
+        <button class="option" onclick="selectOption(1)">Option 2</button>
+        <button class="option" onclick="selectOption(2)">Option 3</button>
+        <button class="option" onclick="selectOption(3)">Option 4</button>
       </div>
       <div class="quiz-footer">
         <div id="progress-bar"></div>
@@ -26,92 +73,8 @@
       </div>
     </div>
   </div>
-  <div class="e">
-
-  </div>
-  <style>
-  
-  body {
-  font-family: Arial, sans-serif;
-  height: 100vh;
-  background-color: #e07272;
-  margin: 0;
-}
-.quiz-container {
-  background: rgb(238, 139, 208);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  max-width: 100%;
-  overflow: hidden;
-  margin-left:20px;
-  margin-top: 50px;
-}
-
-#quiz {
-  padding: 20px;
-}
-
-.question-container {
-  margin-bottom: 20px;
-  
-
-}
-
-h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-.options {
-  display: flex;
-  flex-direction: column;
-}
-
-.option {
-  background-color: #e1e1e1;
-  border: none;
-  border-radius: 5px;
-  margin: 5px 0;
-  padding: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.option:hover {
-  background-color: #ccc;
- 
-}
-
-.quiz-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#progress-bar {
-  height: 10px;
-  background-color: #4caf50;
-  width: 0;
-  border-radius: 5px;
-  transition: width 0.3s;
-}
-
-#score {
-  font-size: 18px;
-}
-  
-
-
-
-
-
-  </style>
   <script>
-  
-
-  const questions = [
+      const questions = [
   {
     question: "The Computer is an electronic devices which tredenuce speed with ________ capcity.?",
     options: ["Nocapacity", "Low", "Great", "high"],
@@ -279,59 +242,58 @@ h2 {
 
   ];
 
-let currentQuestionIndex = 0;
-let score = 0;
 
-function loadQuestion() {
-  const questionElement = document.getElementById('question');
-  const options = document.querySelectorAll('.option');
-  const currentQuestion = questions[currentQuestionIndex];
+    let currentQuestionIndex = 0;
+    let score = 0;
 
-  questionElement.textContent = currentQuestion.question;
-  options.forEach((option, index) => {
-    option.textContent = currentQuestion.options[index];
-    option.style.backgroundColor = '#e1e1e1';
-  });
-}
+    function loadQuestion() {
+      const questionElement = document.getElementById('question');
+      const options = document.querySelectorAll('.option');
+      const currentQuestion = questions[currentQuestionIndex];
 
-function selectOption(selectedOptionIndex) {
-  const currentQuestion = questions[currentQuestionIndex];
-  const options = document.querySelectorAll('.option');
-  if (selectedOptionIndex === currentQuestion.answer) {
-    score++;
-    options[selectedOptionIndex].style.backgroundColor = '#4caf50';
-  } else {
-    options[selectedOptionIndex].style.backgroundColor = '#f44336';
-  }
-  document.getElementById('score').textContent = `Score: ${score}`;
-  currentQuestionIndex++;
-  setTimeout(() => {
-    if (currentQuestionIndex < questions.length) {
-      updateProgressBar();
-      loadQuestion();
-    } else {
-      showFinalScore();
+      questionElement.textContent = currentQuestion.question;
+      options.forEach((option, index) => {
+        option.textContent = currentQuestion.options[index];
+        option.style.backgroundColor = '#6a89cc';
+      });
     }
-  }, 1000);
-}
 
-function updateProgressBar() {
-  const progressBar = document.getElementById('progress-bar');
-  const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
-  progressBar.style.width = `${progressPercentage}%`;
-}
+    function selectOption(selectedOptionIndex) {
+      const currentQuestion = questions[currentQuestionIndex];
+      const options = document.querySelectorAll('.option');
+      if (selectedOptionIndex === currentQuestion.answer) {
+        score++;
+        options[selectedOptionIndex].style.backgroundColor = '#4caf50';
+      } else {
+        options[selectedOptionIndex].style.backgroundColor = '#f44336';
+      }
+      document.getElementById('score').textContent = `Score: ${score}`;
+      currentQuestionIndex++;
+      setTimeout(() => {
+        if (currentQuestionIndex < questions.length) {
+          updateProgressBar();
+          loadQuestion();
+        } else {
+          showFinalScore();
+        }
+      }, 1000);
+    }
 
-function showFinalScore() {
-  const quizContainer = document.querySelector('.quiz-container');
-  quizContainer.innerHTML = `<h2>Your final score is ${score} out of ${questions.length}</h2>`;
-}
+    function updateProgressBar() {
+      const progressBar = document.getElementById('progress-bar');
+      const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
+      progressBar.style.width = `${progressPercentage}%`;
+    }
 
-window.onload = () => {
-  loadQuestion();
-  updateProgressBar();
-};
-  
+    function showFinalScore() {
+      const quizContainer = document.querySelector('.quiz-container');
+      quizContainer.innerHTML = `<h2>Your final score is ${score} out of ${questions.length}</h2>`;
+    }
+
+    window.onload = () => {
+      loadQuestion();
+      updateProgressBar();
+    };
   </script>
 </body>
-
 </html>

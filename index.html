@@ -3,138 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Learning Time</title>
-    <link rel="stylesheet" href="style.css">
-   <meta name="google-adsense-account" content="ca-pub-7177604928905730"> 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177604928905730"
-     crossorigin="anonymous"></script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
-    <a href="/ads.txt" target="_blank">View Ads.txt</a>
+    <meta name="description" content="Learn Computer Courses Online for Free - HTML, CSS, JavaScript, C++, Python, and more.">
+    <title>Computer Course Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container" id="home-page">
-        <h1>Computer Learning Time</h1>
-        <div class="button-container">
-            <button onclick="navigateTo('computer.html')">What is Computers?</button>
-            <button onclick="navigateTo('type.html')">Input Unit</button>
-            <button onclick="navigateTo('pro.html')">Processing Unit</button>
-            <button onclick="navigateTo('out.html')">Output Unit</button>
-            <button onclick="navigateTo('hi.html')">History Of Computers</button>
-            <button onclick="navigateTo('His.html')">Upgrade Window System</button>
-            <button onclick="navigateTo('g.html')">Generation of Computer</button>
-            <button onclick="navigateTo('Test.html')">Test Your Brain</button>
-            <button onclick="navigateTo('ea.html')">HTML-CSS-JS Learning Time</button>
-            <button onclick="navigateTo('boot.html')">Booting MS-DOS Booting</button>
-            <button onclick="navigateTo('chart.html')">CHARACTERS OF COMPUTER</button>
-            <button onclick="navigateTo('mn.html')">UNIT OF MEASUREMENT</button>
+    <header>
+        <h1>Computer Course Learning</h1>
+        <button id="darkModeToggle">🌙</button>
+        <button id="menuToggle">☰</button>
+        <nav>
+            <ul id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" onclick="navigateTo('auth.html')">HTML</a></li>
+                <li><a href="#"onclick="navigateTo('auth.html')">CSS</a></li>
+                <li><a href="#"onclick="navigateTo('auth.html')">JavaScript</a></li>
+                <li><a href="#" onclick="run()">C++</a></li>
+                <li><a href="#" onclick="run()">Python</a></li>
+                <li><a href="#" onclick="run()">Forum</a></li>
+                <li><a href="#" onclick="run()">Conact</a></li>
+                <li><a href="#" onclick="navigateTo('auth.html')">Login</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Learn Computer Courses for Free!</h2>
+        <p>Start learning HTML, CSS, JavaScript, Computer History ,Generation ,Upgrade Window System.</p>
+        <a href="#" onclick="navigateTo('Computer.html')"class="btn">Start Learning</a>
+    </section>
+
+    <section class="courses">
+        <h2>Available Courses</h2>
+        <div class="course-container">
+            <div class="course">
+                <h3>What is Computer</h3>
+                <p>Learn the Basic  of the Computer.</p>
+                <a href="#" onclick="navigateTo('Computer.html')">Start Now</a>
+            </div>
+            <div class="course">
+                <h3>Input Unit</h3>
+                <p>Input Unit  How Its can Input data to the  Computer System.</p>
+                <a href="#" onclick="navigateTo('type.html')">Start Now</a>
+            </div>
+            <div class="course">
+                <h3>Processing Unit</h3>
+                <p>Procesing Unit How To Process The Data on Computer System.</p>
+                <a href="#" onclick="navigateTo('pro.html')">Start Now</a>
+            </div>
+            <div class="course">
+                <h3>Output Unit</h3>
+                <p>Output Unit How Its Can Get Result on Moniter.</p>
+                <a href="#" onclick="navigateTo('out.html')">Start Now</a>
+            </div>
+            <div class="course">
+                <h3>History </h3>
+                <p>Now You See History Of Computer.</p>
+                <a href="#" onclick="navigateTo('hi.html')">Start Now</a>
+            </div>
+        <div class="course">
+            <h3>Generation </h3>
+            <p>Now You See Genration Of Computer. in1940 to till.</p>
+            <a href="#" onclick="navigateTo('g.html')">Start Now</a>
+        </div>
+
+        <div class="course">
+            <h3>Upgrade </h3>
+            <p>Upgrade Of Window System. in1985 to 2021.</p>
+            <a href="#" onclick="navigateTo('his.html')">Start Now</a>
+        </div>
+
+        <div class="course">
+            <h3>Botting </h3>
+            <p>Booting system is only to ony ms dos programme.</p>
+            <a href="#" onclick="navigateTo('boot.html')">Start Now</a>
+        </div>
+
+
+        <div class="course">
+            <h3>CHARACTERS OF COMPUTER</h3>
+            <p>CHARACTERS OF COMPUTER</p>
+            <a href="#" onclick="navigateTo('chart.html')">Start Now</a>
+        </div>
+        <div class="course">
+            <h3>UNIT OF MEASUREMENT </h3>
+            <p>UNIT OF MEASUREMENT</p>
+            <a href="#" onclick="navigateTo('mn.html')">Start Now</a>
         </div>
     </div>
+    </section>
 
+    <footer>
+        <p>&copy; 2025 Computer Course Learning. All rights reserved.</p>
+        <a href="#" onclick="navigateTo('privacy-policy.html')">Privacy Policy</a> | <a href="#" onclick="navigateTo('terms.html')">Terms & Conditions</a>
+    </footer>
 
-    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        transition: background 0.3s, color 0.3s;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            animation: gradientBG 12s infinite alternate;
-            background-size: 400% 400%;
-        }
+    /* Dark Mode */
+    body.dark-mode {
+        background-color: #222;
+        color: red;
+    }
 
-        @keyframes gradientBG {
-            0% {
-                background: linear-gradient(45deg, #0c3241, #0c9148);
-            }
-            20% {
-                background: linear-gradient(45deg, #1a1a5e, #0d7b8f);
-            }
-            40% {
-                background: linear-gradient(45deg, #6a1a1a, #ff5733);
-            }
-            60% {
-                background: linear-gradient(45deg, #0b3d91, #08aeea);
-            }
-            80% {
-                background: linear-gradient(45deg, #145214, #ffdf00);
-            }
-            100% {
-                background: linear-gradient(45deg, #0c3241, #0c9148);
-            }
-        }
+    /* Header & Navigation */
+    header {
+        background-color: #0073e6;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        position: relative;
+    }
 
-        .container {
-            text-align: center;
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
-        }
+    #darkModeToggle, #menuToggle {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        padding: 5px 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+    }
 
-        h1 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 28px;
-            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-        }
+    #menuToggle {
+        right: 60px;
+    }
 
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
+    nav ul {
+        list-style: none;
+        padding: 0;
+        background: #005bb5;
+        margin: 0;
+        text-align: center;
+    }
 
-        button {
-            margin: 5px;
-            padding: 12px 20px;
-            font-size: 14px;
-            cursor: pointer;
-            border: 2px solid white;
-            font-weight: bold;
-            background: linear-gradient(90deg, #ff5733, #ff9f33);
-            color: white;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(255, 87, 51, 0.5);
-        }
+    nav ul li {
+        display: inline;
+        margin: 0 10px;
+    }
 
-        button::after {
-            content: "";
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive Navigation */
+    @media (max-width: 768px) {
+        #navMenu {
+            display: none;
+            flex-direction: column;
+            background: #005bb5;
+            width: 30%;
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            top: 0;
-            left: -100%;
-            transition: all 0.3s ease;
+            top: 50px;
+            left: 0;
         }
 
-        button:hover::after {
-            left: 100%;
+        #navMenu.show {
+            display: flex;
         }
 
-        button:hover {
-            background: linear-gradient(90deg, #ffbd33, #ff5733);
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(255, 189, 51, 0.7);
+        nav ul li {
+            display: block;
+            margin: 10px 0;
         }
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 40px 20px;
+        background: url('assets/images/hero-bg.jpg') no-repeat center center/cover;
+        color: transprent;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #ff9800;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .hero .btn:hover {
+        background: #e68900;
+    }
+
+    /* Courses Section */
+    .courses {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .course-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Courses Section */
+.courses {
+    padding: 30px 20px;
+    text-align: center;
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: auto;
+    border: 2px solid #f6f7f8; /* Optional: adds a border */
+}
+
+/* Custom Scrollbar */
+.courses::-webkit-scrollbar {
+    width: 8px;
+}
+
+.courses::-webkit-scrollbar-thumb {
+    background-color: #0073e6;
+    border-radius: 10px;
+}
+
+.courses::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+}
+.course {
+        background: white;
+        width: 250px;
+        margin: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        transition: transform 0.3s;
+    }
+
+    .course:hover {
+        transform: scale(1.05);
+    }
+
+    .course a {
+        display: block;
+        padding: 8px;
+        background: #0073e6;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .course a:hover {
+        background: #005bb5;
+    }
+
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: #0073e6;
+        color: white;
+    }
+
+    footer a {
+        color: #ffcc00;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
     </style>
 
-    <script>
-        function navigateTo(page) {
-            window.location.href = page; // Redirects to the selected page
-        }
-    </script>
+   <script>
 
+function run(){
+window.alert=(Coming....);
+}
+
+    // Dark Mode Toggle
+    document.getElementById('darkModeToggle').addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    // Mobile Menu Toggle
+    document.getElementById('menuToggle').addEventListener('click', () => {
+        document.getElementById('navMenu').classList.toggle('show');
+    });
+
+    // Function to navigate to a specific page
+    function navigateTo(page) {
+        window.location.href = page; // Redirects to the selected page
+    }
+</script>
 </body>
 </html>

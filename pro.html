@@ -1,56 +1,115 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <tittle></tittle>
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Unit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        h1 {
+            color: #3c0ebd;
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #210780;
+            font-size: 22px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #bb1414;
+            line-height: 1.6;
+        }
+
+
+
+     .image-container img {
+    max-width: 100%; /* Ensures images don't exceed container width */
+    height: auto; /* Maintains original aspect ratio */
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border: 2px solid red;
+            border-radius: 10px;
+        }
+
+
+
+        .e {
+            border: 1px solid transparent;
+            height: 80px;
+            width: 80%;
+            max-width: 250px;
+            background-color: lightgray;
+            margin: 20px auto;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 { font-size: 24px; }
+            h2 { font-size: 20px; }
+            p { font-size: 16px; }
+            .d { max-width: 250px; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 22px; }
+            h2 { font-size: 18px; }
+            p { font-size: 14px; }
+            .d { max-width: 200px; }
+        }
+    </style>
+</head>
+<body>
+
 <h1>Processing Unit</h1>
-<h2>C.P.U- Central Processing Unit</h2><img class="d" src="cpu.jpeg">
-<p>Cpu is the brain of computer. It's can devied into Three type . </p>
-<p>1.Control Unit</p>
-<p>2.Alu</p>
-<p>3.IR</p>
-<h2>1.Control unit</h2><img class="d" src="control.jpeg">
-<p>The control unit is the type of unit in which if control all the parts of computer which are Connect to C. P. U.</p>
-<p>The control unit act as cns( central nervous system) of computer.</p>
-<p>The main function control unit is that Fetch&Decode the instruction. </p> 
- <h2>A. L. U</h2><img class="d" src="alu.jpeg">
-<p>The main function of arithmetic and logical unit is that is Execute the data. 
-</p>
-<p>Excation means(all the calculations either that may be  arithmetic and logical calculation is done  in this unit). </p>
-<h2>IR.</h2><img class="d" src="ir.jpeg">
-<p>Generally Internal resistor is temporary memory which holds the data for some time again transfer the data from one device to another device. </p>
-<div class="e">
 
+<h2>C.P.U - Central Processing Unit</h2>
+<div class="image-container">
+    <img class="d" src="cpu.jpeg" alt="CPU">
 </div>
-<style>
-    .e{
-        border: 1px solid transparent;
-        height: 100px;
-        width: 200px;
-        margin-left: 100px;
-    }
-    .d{
-        width: 250px;
-        height: 250px;
-        border: 1px solid red;
-        border-radius: 20px;
-    }
-h1{
-    color: #3c0ebd;
-    margin-left: 80px;
-    margin-top: 10px;
-}
-h2{
-    color: #210780;
-    margin-left: 10px;
-}
-p{
-    font-size: 20px;
-    color: #bb1414;
-    margin-left: 20px;
-}
+<p>The CPU is the brain of the computer. It can be divided into three types:</p>
+<ul>
+    <li>Control Unit (CU)</li>
+    <li>Arithmetic Logic Unit (ALU)</li>
+    <li>Instruction Register (IR)</li>
+</ul>
 
-        </style>
-    </body>
+<h2>1. Control Unit</h2>
+<div class="image-container">
+    <img class="d" src="control.jpeg" alt="Control Unit">
+</div>
+<p>The control unit manages and directs the operations of the computer. It acts as the central nervous system (CNS) of the computer.</p>
+<p>Its main function is to fetch and decode instructions.</p>
+
+<h2>2. Arithmetic Logic Unit (ALU)</h2>
+<div class="image-container">
+    <img class="d" src="alu.jpeg" alt="ALU">
+</div>
+<p>The Arithmetic and Logical Unit (ALU) is responsible for executing data operations, including all arithmetic and logical calculations.</p>
+
+<h2>3. Instruction Register (IR)</h2>
+<div class="image-container">
+    <img class="d" src="ir.jpeg" alt="Instruction Register">
+</div>
+<p>The Instruction Register (IR) acts as a temporary memory, holding data for a short time before transferring it to other components.</p>
+
+<div class="e"></div>
+
+</body>
 </html>
