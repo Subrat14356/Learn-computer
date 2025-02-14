@@ -328,9 +328,19 @@
         window.location.href = page;
     }
     
-    function run() {
-        alert("Coming soon...");
-    }
+    onerror = handleErr;
+var txt = "";
+function handleErr(msg, url, l) {
+  txt = "There was Coming soon...\n\n";
+ 
+  txt += "Click OK to continue.\n\n";
+  alert(txt);
+  return true;
+}
+
+function run() {
+   adddlert("Welcome guest!");
+}
     </script>
 </body>
 </html>
