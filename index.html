@@ -24,10 +24,6 @@
               <li class="li"><a href="#" onclick="navigateTo('ht.html')">HTML</a></li>
               <li class="li"><a href="#" onclick="navigateTo('cs.html')">CSS</a></li>
               <li class="li"><a href="#" onclick="navigateTo('js.html')">JavaScript</a></li>
-              <li class="li"><a href="#" onclick="run()">C++</a></li>
-              <li class="li"><a href="#" onclick="run()">Python</a></li>
-              <li class="li"><a href="#" onclick="run()">Forum</a></li>
-              <li class="li"><a href="#" onclick="run()">c</a></li>
               <li class="li"><a href="#" onclick="navigateTo('auth.html')">Login</a></li>
           </ul>
           </div>
@@ -834,21 +830,7 @@ const toggleButton5 = document.getElementById('toggleButton5');
       toolbox.classList.remove('visible');
     }
   });
-  onerror = handleErr;
-var txt = "";
-function handleErr(msg, url, l) {
-  txt = "There was an error on this page.\n\n";
- 
-  txt += "Click OK to continue.\n\n";
-  alert(txt);
-  return true;
-}
-
-function run() {
-   adddlert("Welcome guest!");
-}
-
- // Set current date as effective date
+  // Set current date as effective date
  document.getElementById("date").textContent = new Date().toLocaleDateString();
 
 // Set last updated date dynamically
