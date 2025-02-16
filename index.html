@@ -24,10 +24,10 @@
               <li class="li"><a href="#" onclick="navigateTo('ht.html')">HTML</a></li>
               <li class="li"><a href="#" onclick="navigateTo('cs.html')">CSS</a></li>
               <li class="li"><a href="#" onclick="navigateTo('js.html')">JavaScript</a></li>
-              <li class="li"><a href="#"onclick="navigateTo('index.html')" >C++</a></li>
-              <li class="li"><a href="#" onclick="navigateTo('index.html')">Python</a></li>
-              <li class="li"><a href="#"onclick="navigateTo('index.html')" >Forum</a></li>
-              <li class="li"><a href="#"onclick="navigateTo('index.html')" >c</a></li>
+              <li class="li"><a href="#" onclick="run()">C++</a></li>
+              <li class="li"><a href="#" onclick="run()">Python</a></li>
+              <li class="li"><a href="#" onclick="run()">Forum</a></li>
+              <li class="li"><a href="#" onclick="run()">c</a></li>
               <li class="li"><a href="#" onclick="navigateTo('auth.html')">Login</a></li>
           </ul>
           </div>
@@ -548,7 +548,7 @@ p{
   .toolbox.hidden {
     max-height: 0;
     opacity: 0;
-         margin-left: -30px;
+    margin-left: -30px;
     margin-top: -850px;
     padding-top: 0;
     padding-bottom: 0;
@@ -557,8 +557,8 @@ p{
   .toolbox.visible {
     max-height: 750px; /* Adjust based on content height */
     opacity: 1;
-         margin-left: -30px;
    margin-top: -850px;
+   margin-left: -30px;
     padding-top: 15px;
     padding-bottom: 15px;
   }
@@ -834,8 +834,21 @@ const toggleButton5 = document.getElementById('toggleButton5');
       toolbox.classList.remove('visible');
     }
   });
+  onerror = handleErr;
+var txt = "";
+function handleErr(msg, url, l) {
+  txt = "There was an error on this page.\n\n";
  
- / Set current date as effective date
+  txt += "Click OK to continue.\n\n";
+  alert(txt);
+  return true;
+}
+
+function run() {
+   adddlert("Welcome guest!");
+}
+
+ // Set current date as effective date
  document.getElementById("date").textContent = new Date().toLocaleDateString();
 
 // Set last updated date dynamically
