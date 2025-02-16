@@ -15,20 +15,24 @@
     <header>
         <h1>Computer Course Learning</h1>
         <button id="darkModeToggle">🌙</button>
-        <button id="menuToggle">☰</button>
-        <nav>
-            <ul id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#" onclick="navigateTo('ht.html')">HTML</a></li>
-                <li><a href="#" onclick="navigateTo('cs.html')">CSS</a></li>
-                <li><a href="#" onclick="navigateTo('js.html')">JavaScript</a></li>
-                <li><a href="#" onclick="run()">C++</a></li>
-                <li><a href="#" onclick="run()">Python</a></li>
-                <li><a href="#" onclick="run()">Forum</a></li>
-                <li><a href="#" onclick="run()">Contact</a></li>
-                <li><a href="#" onclick="navigateTo('auth.html')">Login</a></li>
-            </ul>
-        </nav>
+        <button class="button" id="toggleButton">☰ menu</button>
+        <div class="m">
+          <div id="toolbox" class="toolbo hidden">
+           
+            <ul class="ul" id="navMenu">
+              <li class="li"><a href="index.html">Home</a></li>
+              <li class="li"><a href="#" onclick="navigateTo('ht.html')">HTML</a></li>
+              <li class="li"><a href="#" onclick="navigateTo('cs.html')">CSS</a></li>
+              <li class="li"><a href="#" onclick="navigateTo('js.html')">JavaScript</a></li>
+              <li class="li"><a href="#" onclick="run()">C++</a></li>
+              <li class="li"><a href="#" onclick="run()">Python</a></li>
+              <li class="li"><a href="#" onclick="run()">Forum</a></li>
+              <li class="li"><a href="#" onclick="run()">c</a></li>
+              <li class="li"><a href="#" onclick="navigateTo('auth.html')">Login</a></li>
+          </ul>
+          </div>
+          
+      </div>
     </header>
           <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7177604928905730" data-ad-slot="5678901234" data-ad-format="auto"></ins>           
     <section class="hero">
@@ -110,13 +114,454 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     
     <footer>
-        <p>&copy; 2025 Computer Course Learning. All rights reserved.</p>
-        <a href="#" onclick="navigateTo('privacy-policy.html')">Privacy Policy</a> | 
-        <a href="#" onclick="navigateTo('terms.html')">Terms & Conditions</a>
+        <p class="p">&copy; 2025 Computer Course Learning. All rights reserved.</p>
+        <div class="c">
+            <a id="toggleButton1">Privacy Policy</a>
+            <div id="toolbox1" class="toolbox hidden">
+              <div class="container">
+                <p>Privacy Policy</p>
+                <p><strong>Effective Date:</strong> <span id="date"></span></p>
+            
+                <p>1. Information We Collect</p>
+                <p>We do not collect personal information unless you provide it voluntarily. We may collect non-personal data such as cookies or usage analytics.</p>
+            
+                <p>2. How We Use Your Information</p>
+                <p>We use the collected data to improve our website and respond to inquiries.</p>
+            
+                <p>3. Cookies & Tracking Technologies</p>
+                <p>We may use cookies to enhance functionality. You can disable cookies in your browser settings.</p>
+            
+                <p>4. Third-Party Links</p>
+                <p>Our website may contain links to third-party sites. We are not responsible for their privacy policies.</p>
+            
+                <p>5. Data Security</p>
+                <p>We take security measures, but no online transmission is 100% secure.</p>
+            
+                <p>6. Changes to This Policy</p>
+                <p>We may update this Privacy Policy. Changes will be posted on this page.</p>
+            
+                <p>7. Contact Us</p>
+                <p>If you have any questions, contact us at <strong>[sasubart@gamil.com]</strong>.</p>
+            
+                <div class="footer">
+                    Last Updated: <span id="lastUpdated"></span>
+                </div>
+            </div>
+          
+            </div>|
+            <a id="toggleButton2">Terms & Conditions</a>
+            <div id="toolbox2" class="toolbox hidden">
+              <div class="container">
+                <h2>Terms & Conditions</h2>
+                <p><strong>1. Purpose:</strong> This content is designed to provide basic computer knowledge for educational purposes only.</p>
+                <p><strong>2. Accuracy:</strong> While we strive for accuracy, we do not guarantee that all information is error-free or up-to-date.</p>
+                <p><strong>3. Usage:</strong> The content is for personal learning only. Do not reproduce, distribute, or use it for commercial purposes without permission.</p>
+                <p><strong>4. Responsibility:</strong> We are not responsible for any issues, misunderstandings, or damages resulting from the use of this content.</p>
+                <p><strong>5. Updates:</strong> We may update or modify the content at any time without prior notice.</p>
+                <p><strong>6. Acceptance:</strong> By using this content, you agree to these terms and conditions.</p>
+                
+                <button class="gh" id="acceptBtn">Accept & Continue</button>
+            </div>
+
+            </div>|
+            <a id="toggleButton3">About Me.</a>
+            <div id="toolbox3" class="toolbox hidden">
+              <section id="about">
+                <h2>About Us</h2>
+                <p>We Develop This app for Learn Basics knows of Computer . Our mission is to innovate and bring value to our customers.</p>
+              </section>
+            
+              <section id="team">
+                <h2>Our Team</h2>
+                <div class="team-member">
+                  <p> <strong>Tikeswar</strong> </p>
+                  <p>Founder & Creater</p>
+                </div>
+                <div class="team-member">
+                  <p><strong>Tikeswar</strong> </p>
+                  <p>Lead Developer</p>
+                </div>
+              </section>
+            
+              <section id="contact">
+                <h2>Contact Us</h2>
+                <p>Email: <a href="mailto:contact@company.com">contact@Satikeswar.com</a></p>
+                <p>Phone: +123 456 7890</p>
+              </section>
+
+            </div>|
+            <a id="toggleButton4">Contact</a>
+            <div id="toolbox4" class="toolbox hidden">
+              <div class="head">
+                <p class="jk">Contact Us</p>
+              </div>
+              <section id="contact-form">
+                <p>Get in Touch</p>
+                <form id="form">
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" required>
+            
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required>
+            
+                  <label for="message">Message:</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+            
+                  <button type="submit">Submit</button>
+                </form>
+              </section>
+            
+              <section id="contact-info">
+                <p >Contact Information</p>
+                <p>Email: <a href="mailto:support@company.com">satikeswar.com</a></p>
+                <p>Phone: +123 456 7890</p>
+                <p>Address: 123 Main Street, City, Country</p>
+              </section>
+            
+      
+            </div>|
+            <a id="toggleButton5">Sitemap</a>
+            <div id="toolbox5" class="toolbox hidden">
+
+
+              <div class="section">
+                <div class="section-header" onclick="toggleSection(1)">1. Introduction to Computers</div>
+                <div class="section-content" id="section1">
+                    <ul class="u">
+                        <li class="l"><a href="#">What is a Computer?</a></li>
+                        <li class="l"><a href="#">Types of Computers</a></li>
+                        <li class="l"><a href="#">Basic Computer Components</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(2)">2. Operating Systems</div>
+                <div class="section-content" id="section2">
+                    <ul class="u">
+                        <li class="l"><a href="#">What is an Operating System?</a></li>
+                        <li class="l"><a href="#">Windows Basics</a></li>
+                        <li class="l"><a href="#">Linux Basics</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(3)">3. Internet & Web Basics</div>
+                <div class="section-content" id="section3">
+                    <ul class="u">
+                        <li class="l"><a href="#">What is the Internet?</a></li>
+                        <li class="l"><a href="#">Web Browsers & Search Engines</a></li>
+                        <li class="l"><a href="#">Email & Online Safety</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(4)">4. HTML, CSS & JavaScript</div>
+                <div class="section-content" id="section4">
+                    <ul class="u">
+                        <li class="l"><a href="#">Introduction to HTML</a></li>
+                        <li class="l"><a href="#">Introduction to CSS</a></li>
+                        <li class="l"><a href="#">Introduction to JavaScript</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="section">
+                <div class="section-header" onclick="toggleSection(5)">5. Computer Security & Privacy</div>
+                <div class="section-content" id="section5">
+                    <ul class="u">
+                        <li class="l"><a href="#">Antivirus & Firewalls</a></li>
+                        <li class="l"><a href="#">Safe Browsing Tips</a></li>
+                        <li class="l"><a href="#">Data Protection & Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+      
+
+            </div>|
+        </div>
+
     </footer>
      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7177604928905730" data-ad-slot="5678901234" data-ad-format="auto"></ins>
       <style>
-    /* General Styles */
+
+.section {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .section-header {
+            padding: 10px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px 5px 0 0;
+        }
+        .section-content {
+            display: none;
+            padding: 10px;
+            background: white;
+        }
+        .section-header:hover {
+            background: #0056b3;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.jk{
+  color: #f5efef;
+  font-size: 48px;
+  font-weight: bold;
+}
+.head{
+  margin-top: -50px;
+  background-color: #007BFF;
+}
+/* Form Section */
+#contact-form {
+  background: #fff;
+  padding: 2rem;
+  margin: 1rem auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+}
+
+#contact-form h2 {
+  margin-bottom: 1rem;
+}
+
+form label {
+  display: block;
+  color: #000;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form button:hover {
+  background: #0056b3;
+}
+
+/* Contact Info Section */
+#contact-info {
+  text-align: center;
+  padding: 2rem;
+  background: #f4f4f4;
+  margin: 1rem auto;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 600px;
+}
+
+#contact-info a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+#contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #333;
+  color: #fff;
+}
+  
+
+p{
+  color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.gh {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.gh:hover {
+    background: #0056b3;
+}  
+.button{
+  background-color: transparent;
+  color: #fdf8f8;
+  font-size: 28px;
+  border: none;
+}
+
+.m {
+    position: relative;
+    margin: 20px;
+  }
+  /* Toolbox styles */
+  .toolbo {
+    position: absolute;
+    top: 50px;  /* Adjust to position below the button */
+    left: 0;
+    margin-left: -20px;
+    width: 100pxpx;
+    height: 300px;
+    padding: 15px;
+    background-color: #d559e0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.5s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .toolbo.hidden {
+    max-height: 0;
+    opacity: 0;
+
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .toolbo.visible {
+    max-height: 600px; /* Adjust based on content height */
+    opacity: 1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+
+
+ .ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+ .ul .li {
+        display: inline;
+        margin: 0 10px;
+    }
+
+ .ul .li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+.ul .li a:hover {
+        text-decoration: underline;
+    }
+
+    .ul .li {
+            display: block;
+            margin: 10px 0;
+        }
+   
+
+
+
+
+         .c {
+    position: relative;
+    margin: 20px;
+  }
+
+ 
+  /* Toolbox styles */
+  .toolbox {
+    position: absolute;
+    top: 50px;  /* Adjust to position below the button */
+    left: 0;
+    width: 420px;
+    height: 750px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.5s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .toolbox.hidden {
+    max-height: 0;
+    opacity: 0;
+    margin-top: -850px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .toolbox.visible {
+    max-height: 750px; /* Adjust based on content height */
+    opacity: 1;
+   margin-top: -850px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+/* General Styles */
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -156,51 +601,6 @@
         right: 60px;
     }
 
-    nav ul {
-        list-style: none;
-        padding: 0;
-        background: #005bb5;
-        margin: 0;
-        text-align: center;
-    }
-
-    nav ul li {
-        display: inline;
-        margin: 0 10px;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        font-size: 16px;
-    }
-
-    nav ul li a:hover {
-        text-decoration: underline;
-    }
-
-    /* Responsive Navigation */
-    @media (max-width: 768px) {
-        #navMenu {
-            display: none;
-            flex-direction: column;
-            background: #005bb5;
-            width: 30%;
-            position: absolute;
-            top: 50px;
-            left: 0;
-        }
-
-        #navMenu.show {
-            display: flex;
-        }
-
-        nav ul li {
-            display: block;
-            margin: 10px 0;
-        }
-    }
 
     /* Hero Section */
     .hero {
@@ -222,7 +622,7 @@
         display: inline-block;
         padding: 10px 20px;
         background: #ff9800;
-        color: white;
+        color: rgb(236, 227, 227);
         text-decoration: none;
         font-size: 16px;
         border-radius: 5px;
@@ -299,9 +699,10 @@
         text-align: center;
         padding: 15px;
         background: #0073e6;
-        color: white;
     }
-
+.p{
+    color: white;
+}
     footer a {
         color: #ffcc00;
         text-decoration: none;
@@ -318,16 +719,168 @@
         document.body.classList.toggle('dark-mode');
     });
     
-    // Mobile Menu Toggle
-    document.getElementById('menuToggle').addEventListener('click', () => {
-        document.getElementById('navMenu').classList.toggle('show');
-    });
-    
-    // Function to navigate to a specific page
+     // Function to navigate to a specific page
     function navigateTo(page) {
         window.location.href = page;
     }
-    
+   ////////////btn1
+    const toggleButton1 = document.getElementById('toggleButton1');
+  const toolbox1 = document.getElementById('toolbox1');
+
+  // Toggle toolbox visibility on button click
+  toggleButton1.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevents the document click event from closing the toolbox
+    toolbox1.classList.toggle('hidden');
+    toolbox1.classList.toggle('visible');
+  });
+
+  // Close toolbox if clicked outside of the button or toolbox
+  document.addEventListener('click', (event) => {
+    if (!toggleButton1.contains(event.target) && !toolbox1.contains(event.target)) {
+      toolbox1.classList.add('hidden');
+      toolbox1.classList.remove('visible');
+    }
+  });
+////////////btn2
+const toggleButton2 = document.getElementById('toggleButton2');
+  const toolbox2 = document.getElementById('toolbox2');
+
+  // Toggle toolbox visibility on button click
+  toggleButton2.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevents the document click event from closing the toolbox
+    toolbox2.classList.toggle('hidden');
+    toolbox2.classList.toggle('visible');
+  });
+
+  // Close toolbox if clicked outside of the button or toolbox
+  document.addEventListener('click', (event) => {
+    if (!toggleButton2.contains(event.target) && !toolbox2.contains(event.target)) {
+      toolbox2.classList.add('hidden');
+      toolbox2.classList.remove('visible');
+    }
+  });
+////////////btn3
+const toggleButton3 = document.getElementById('toggleButton3');
+  const toolbox3 = document.getElementById('toolbox3');
+
+  // Toggle toolbox visibility on button click
+  toggleButton3.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevents the document click event from closing the toolbox
+    toolbox3.classList.toggle('hidden');
+    toolbox3.classList.toggle('visible');
+  });
+
+  // Close toolbox if clicked outside of the button or toolbox
+  document.addEventListener('click', (event) => {
+    if (!toggleButton3.contains(event.target) && !toolbox3.contains(event.target)) {
+      toolbox3.classList.add('hidden');
+      toolbox3.classList.remove('visible');
+    }
+  });
+
+////////////btn4
+const toggleButton4 = document.getElementById('toggleButton4');
+  const toolbox4 = document.getElementById('toolbox4');
+
+  // Toggle toolbox visibility on button click
+  toggleButton4.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevents the document click event from closing the toolbox
+    toolbox4.classList.toggle('hidden');
+    toolbox4.classList.toggle('visible');
+  });
+
+  // Close toolbox if clicked outside of the button or toolbox
+  document.addEventListener('click', (event) => {
+    if (!toggleButton4.contains(event.target) && !toolbox4.contains(event.target)) {
+      toolbox4.classList.add('hidden');
+      toolbox4.classList.remove('visible');
+    }
+  });
+
+////////////btn5
+const toggleButton5 = document.getElementById('toggleButton5');
+  const toolbox5 = document.getElementById('toolbox5');
+  // Toggle toolbox visibility on button click
+  toggleButton5.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevents the document click event from closing the toolbox
+    toolbox5.classList.toggle('hidden');
+    toolbox5.classList.toggle('visible');
+  });
+
+  // Close toolbox if clicked outside of the button or toolbox
+  document.addEventListener('click', (event) => {
+    if (!toggleButton5.contains(event.target) && !toolbox5.contains(event.target)) {
+      toolbox5.classList.add('hidden');
+      toolbox5.classList.remove('visible');
+    }
+  });
+
+  const toggleButton = document.getElementById('toggleButton');
+  const toolbox = document.getElementById('toolbox');
+
+  // Toggle toolbox visibility on button click
+  toggleButton.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevents the document click event from closing the toolbox
+    toolbox.classList.toggle('hidden');
+    toolbox.classList.toggle('visible');
+  });
+
+  // Close toolbox if clicked outside of the button or toolbox
+  document.addEventListener('click', (event) => {
+    if (!toggleButton.contains(event.target) && !toolbox.contains(event.target)) {
+      toolbox.classList.add('hidden');
+      toolbox.classList.remove('visible');
+    }
+  });
+  onerror = handleErr;
+var txt = "";
+function handleErr(msg, url, l) {
+  txt = "There was an error on this page.\n\n";
+ 
+  txt += "Click OK to continue.\n\n";
+  alert(txt);
+  return true;
+}
+
+function run() {
+   adddlert("Welcome guest!");
+}
+
+ // Set current date as effective date
+ document.getElementById("date").textContent = new Date().toLocaleDateString();
+
+// Set last updated date dynamically
+document.getElementById("lastUpdated").textContent = document.lastModified;
+
+document.getElementById("acceptBtn").addEventListener("click", function() {
+    alert("You have accepted the Terms & Conditions.");
+    window.location.href = "index.html"; // Change this to your main page
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('form');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    if (name && email && message) {
+      alert(`Thank you, ${name}! Your message has been received.`);
+      form.reset();
+    } else {
+      alert('Please fill in all fields.');
+    }
+  });
+});
+function toggleSection(id) {
+        let section = document.getElementById('section' + id);
+        section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+
+
     </script>
 </body>
 </html>
