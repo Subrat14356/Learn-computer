@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notepad Clone</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="home">
+  <div class="menu-bar">
+    <button  class="c" id="toggleButton"><b>File</b></button>
+    <button  class="c"  id="toggleButto"><b>Edit</b></button>
+    <button  class="c"  id="toggleButt"><b>Font</b></button>
+    <button  class="c"  id="toggleBut"><b>View</b></button>
+  </div>
+  <div id="toolbox" class="toolbox hidden">
+    <button onclick="newFile()">New</button><br>
+    <button  onclick="newWindow()">New Window </button><br>
+     <button onclick="openFile()">Open</button><br>
+    <button onclick="clearText()">Clear</button><br>
+    <button onclick="saveFile()">Save </button><br>
+    <button  onclick="saveAs()">Save As</button><br>
+    <button onclick="pageSetup()">Page Set</button><br>
+    <button  onclick="printPage()">Print</button><br>
+    <button  onclick="exitApp()">Exit</button><br>
+  </div>
+
+  <div id="toolbo" class="toolbox hidden">
+    <button onclick="undoAction()">Undo</button><br>
+    <button onclick="redoAction()">Redo</button><br>
+    <button onclick="cutText()">Cut</button><br>
+    <button onclick="copyText()">Copy</button><br>
+    <button onclick="pasteText()">Paste</button><br>
+    <button onclick="searchWord()">Search</button><br>
+    <button onclick="findWord()">Find</button><br>
+    <button onclick="insertTime()">Insert Time</button><br>
+    <button onclick="goToLine()">Go To Line</button><br>
+    <button onclick="replaceWord()">Replace</button><br>
+    <button onclick="selectAllText()">Select All</button>
+  </div>
+  <div id="toolb" class="toolbox hidden">
+
+    <div class="controls">
+      <label for="font-family">Font Family:</label>
+      <select id="font-family">
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Times New Roman">Times New Roman</option>
+      </select>
+      <label for="font-size">Font Size:</label>
+      <select id="font-size">
+        <option value="8px">8px</option>
+        <option value="9px">9px</option>
+        <option value="11px">10px</option>
+        <option value="12px">11px</option>
+        <option value="14px">14px</option>
+        <option value="16px">12px</option>
+        <option value="18px">18px</option>
+        <option value="20px">20px</option>
+        <option value="24px">24px</option>
+        <option value="28px">28px</option>
+        <option value="48px">48px</option>
+        <option value="72px">72px</option>
+      </select>
+
+      <button id="bold-btn">Bold</button><br>
+      <button id="italic-btn">Italic</button><br>
+      <button id="underline-btn">Underline</button><br>
+
+      <button id="align-left">Align Left</button><br>
+      <button id="align-center">Align Center</button><br>
+      <button id="align-right">Align Right</button>
+  </div>
+  </div>
+  <div id="tool" class="toolbox hidden">
+    <button onclick="zoomIn()">Zoom In</button><br>
+    <button onclick="zoomOut()">Zoom Out</button><br>
+  </div>
+  <div class="suggestions" id="suggestionBox"></div>
+  <textarea class="editor" id="editor"  spellcheck="false"></textarea>
+  <input type="file" id="fileInput" accept="(*.html/.txt*.html/.txt)" onchange="readFile()" hidden>
+  <div class="status-bar">
+    <span>Row: 1, Column: 1</span>
+    <span>100%</span>
+    <span>Windows (CRLF)</span>
+    <span>UTF-8</span>
+  </div>
+</div>
+
+
+  <style>
+  .button {
+          margin-top: 20px;
+            background-color: #b91fad;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .button:hover {
+            background-color: #1d962d;
+        }
+
+    .home{
+      width: 100%;
+      height: 100%;
+    }
+   
+    .c{
+      border: none;
+      font-weight: bold;
+      color: #f8efef;
+      background-color: transparent;
+    }
+.suggestions {
+  display: none; /* Hide by default */
+  position: absolute;
+  width: 30%;
+  left:250px;
+  top: 150px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.suggestions div {
+  padding: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.suggestions div:hover {
+  background-color: #0078d7;
+  color: #fff;
+}
+
+.suggestions::-webkit-scrollbar {
+  width: 8px;
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.suggestions::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+.suggestions::-webkit-scrollbar-track {
+  background-color: #f9f9f9;
+}
+
+.toolbox {
+    position: absolute;
+    top: 50px;  /* Adjust to position below the button */
+    left: 0;
+    margin-top: 10px;
+    width: 150px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.5s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .toolbox.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .toolbox.visible {
+    max-height: 250px; /* Adjust based on content height */
+    opacity: 1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ background-color: #e0e0e0;
+}
+
+.menu-bar {
+  background-color: #666666;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 10px;
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  color: black;
+}
+.editor {
+  width: 100%;
+  height: calc(100vh - 60px);
+  border: 1px solid red;
+  resize: none;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.status-bar {
+  background-color: #f0f0f0;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 10px;
+  font-size: 14px;
+  gap: 2px;
+  font-weight: bolder;
+  height: 20px;
+  box-sizing: border-box;
+}
+
+  </style>
+  <script>
+let currentFontSize = 16;
+
+function zoomIn() {
+  currentFontSize += 2; // Increase font size by 2px
+  document.getElementById('editor').style.fontSize = currentFontSize + 'px';
+}
+
+function zoomOut() {
+  if (currentFontSize > 6) { // Prevent the font size from becoming too small
+    currentFontSize -= 2; // Decrease font size by 2px
+    document.getElementById('editor').style.fontSize = currentFontSize + 'px';
+  }
+}
+const editor = document.querySelector('.editor');
+const statusBar = document.querySelector('.status-bar span:first-child');
+
+editor.addEventListener('keyup', () => {
+  const lines = editor.value.split("\n");
+  const line = lines.length;
+  const col = lines[lines.length - 1].length + 1;
+  statusBar.textContent = `Ln ${line}, Col ${col}`;
+});
+
+  //////////file
+  const toggleButton = document.getElementById('toggleButton');
+  const toolbox = document.getElementById('toolbox');
+
+  // Toggle toolbox visibility on button click
+  toggleButton.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevents the document click event from closing the toolbox
+    toolbox.classList.toggle('hidden');
+    toolbox.classList.toggle('visible');
+  });
+
+  // Close toolbox if clicked outside of the button or toolbox
+  document.addEventListener('click', (event) => {
+    if (!toggleButton.contains(event.target) && !toolbox.contains(event.target)) {
+      toolbox.classList.add('hidden');
+      toolbox.classList.remove('visible');
+    }
+  });
+
+/////////////edit
+
+const toggleButto = document.getElementById('toggleButto');
+  const toolbo = document.getElementById('toolbo');
+
+  // Toggle toolbox visibility on button click
+  toggleButto.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevents the document click event from closing the toolbox
+    toolbo.classList.toggle('hidden');
+    toolbo.classList.toggle('visible');
+  });
+
+  // Close toolbox if clicked outside of the button or toolbox
+  document.addEventListener('click', (event) => {
+    if (!toggleButto.contains(event.target) && !toolbo.contains(event.target)) {
+      toolbo.classList.add('hidden');
+      toolbo.classList.remove('visible');
+    }
+  });
+
+//////////font
+
+const toggleButt = document.getElementById('toggleButt');
+  const toolb = document.getElementById('toolb');
+
+  // Toggle toolbox visibility on button click
+  toggleButt.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevents the document click event from closing the toolbox
+    toolb.classList.toggle('hidden');
+    toolb.classList.toggle('visible');
+  });
+
+  // Close toolbox if clicked outside of the button or toolbox
+  document.addEventListener('click', (event) => {
+    if (!toggleButt.contains(event.target) && !toolb.contains(event.target)) {
+      toolb.classList.add('hidden');
+      toolb.classList.remove('visible');
+    }
+  });
+
+//////////View
+
+const toggleBut = document.getElementById('toggleBut');
+  const tool = document.getElementById('tool');
+
+  // Toggle toolbox visibility on button click
+  toggleBut.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevents the document click event from closing the toolbox
+    tool.classList.toggle('hidden');
+    tool.classList.toggle('visible');
+  });
+
+  // Close toolbox if clicked outside of the button or toolbox
+  document.addEventListener('click', (event) => {
+    if (!toggleBut.contains(event.target) && !tool.contains(event.target)) {
+      tool.classList.add('hidden');
+      tool.classList.remove('visible');
+    }
+  });
+
+
+
+
+
+
+///file
+function newFile() {
+            if (confirm('Are you sure you want to create a new file? Unsaved changes will be lost.')) {
+                document.getElementById('editor').value = '';
+            }
+        }
+
+        function newWindow() {
+            window.open('', '_blank');
+        }
+
+         // Open a file
+function openFile() {
+  document.getElementById('fileInput').click();
+}
+
+function readFile() {
+  const file = document.getElementById('fileInput').files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      document.getElementById('editor').value = event.target.result;
+    };
+    reader.readAsText(file);
+  }
+}
+
+
+
+// Clear the text area
+function clearText() {
+  if (confirm('Are you sure you want to clear all text?')) {
+    document.getElementById('editor').value = '';
+  }
+}
+
+
+        function saveFile() {
+            const text = document.getElementById('editor').value;
+            const blob = new Blob([text], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'web.html';
+            a.click();
+        }
+
+        function saveAs() {
+            saveFile(); // Reuse saveFile for now.
+        }
+
+        function pageSetup() {
+            alert('Page Setup is not available in this browser-based htmlCode.');
+        }
+
+        function printPage() {
+            const content = document.getElementById('editor').value;
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write('<pre>' + content + '</pre>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        function exitApp() {
+            if (confirm('Are you sure you want to exit?')) {
+                window.close();
+            }
+        }
+///////////Edit
+const edito = document.getElementById('editor');
+
+// Undo and Redo functionality
+let undoStack = [];
+let redoStack = [];
+
+function saveState() {
+    undoStack.push(editor.value);
+    redoStack = []; // Clear redo stack after a new action
+}
+
+function undoAction() {
+    if (undoStack.length > 0) {
+        redoStack.push(editor.value);
+        editor.value = undoStack.pop();
+    }
+}
+
+function redoAction() {
+    if (redoStack.length > 0) {
+        undoStack.push(edito.value);
+        editor.value = redoStack.pop();
+    }
+}
+
+// Cut, Copy, Paste functionality
+function cutText() {
+    document.execCommand('cut');
+}
+
+function copyText() {
+    document.execCommand('copy');
+}
+
+function pasteText() {
+    document.execCommand('paste');
+}
+
+// Search Word functionality
+function searchWord() {
+    const searchTerm = prompt("Enter word to search:");
+    const index = editor.value.indexOf(searchTerm);
+    if (index !== -1) {
+        alert(`Found at index ${index}`);
+    } else {
+        alert("Word not found");
+    }
+}
+
+// Find functionality
+function findWord() {
+    const findTerm = prompt("Enter word to find:");
+    const regex = new RegExp(findTerm, 'g');
+    let match;
+    let positions = [];
+    while ((match = regex.exec(editor.value)) !== null) {
+        positions.push(match.index);
+    }
+    if (positions.length > 0) {
+        alert(`Found at positions: ${positions.join(', ')}`);
+    } else {
+        alert("Word not found");
+    }
+}
+
+// Insert current time
+function insertTime() {
+    const currentTime = new Date().toLocaleTimeString();
+    editor.value += ` ${currentTime}`;
+}
+
+// Go To Line functionality
+function goToLine() {
+    const lineNumber = prompt("Enter line number:");
+    const lines = editor.value.split('\n');
+    if (lineNumber >= 1 && lineNumber <= lines.length) {
+        const position = lines.slice(0, lineNumber - 1).join('\n').length + lineNumber - 1;
+        editor.focus();
+        editor.setSelectionRange(position, position);
+    } else {
+        alert("Invalid line number");
+    }
+}
+
+// Replace functionality
+function replaceWord() {
+    const wordToReplace = prompt("Enter word to replace:");
+    const replacementWord = prompt("Enter replacement word:");
+    const regex = new RegExp(wordToReplace, 'g');
+    editor.value = editor.value.replace(regex, replacementWord);
+}
+
+// Select All text
+function selectAllText() {
+  edito.select();
+}
+
+// Save state on typing
+edito.addEventListener('input', saveState);
+
+///////////////font
+
+const textArea = document.getElementById('editor');
+const fontFamily = document.getElementById('font-family');
+const fontSize = document.getElementById('font-size');
+const boldBtn = document.getElementById('bold-btn');
+const italicBtn = document.getElementById('italic-btn');
+const underlineBtn = document.getElementById('underline-btn');
+const alignLeft = document.getElementById('align-left');
+const alignCenter = document.getElementById('align-center');
+const alignRight = document.getElementById('align-right');
+
+// Change font family
+fontFamily.addEventListener('change', () => {
+  textArea.style.fontFamily = fontFamily.value;
+});
+
+// Change font size
+fontSize.addEventListener('change', () => {
+  textArea.style.fontSize = fontSize.value;
+});
+
+// Toggle bold
+boldBtn.addEventListener('click', () => {
+  textArea.style.fontWeight =
+    textArea.style.fontWeight === 'bold' ? 'normal' : 'bold';
+});
+
+// Toggle italic
+italicBtn.addEventListener('click', () => {
+  textArea.style.fontStyle =
+    textArea.style.fontStyle === 'italic' ? 'normal' : 'italic';
+});
+
+// Toggle underline
+underlineBtn.addEventListener('click', () => {
+  textArea.style.textDecoration =
+    textArea.style.textDecoration === 'underline' ? 'none' : 'underline';
+});
+
+// Align text left
+alignLeft.addEventListener('click', () => {
+  textArea.style.textAlign = 'left';
+});
+
+// Align text center
+alignCenter.addEventListener('click', () => {
+  textArea.style.textAlign = 'center';
+});
+
+// Align text right
+alignRight.addEventListener('click', () => {
+  textArea.style.textAlign = 'right';
+});
+
+
+//Html auto fillup
+
+const edit = document.getElementById('htmlCode');
+        const suggestionBox = document.getElementById('suggestionBox');
+
+        // Predefined auto-suggestions
+        const suggestions = [
+        "<></>",
+"<!Doctype html><html><head><title></title></head><body></body></html>",
+  "<!Doctype html>", "<html></html>", "<head></head>", "<title></title>", "<body></body>",
+  "<h1></h1>", "<h2></h2>", "<h3></h3>", "<h4></h4>", "<div></div>", "<span></span>", 
+  "<a href=></a>", "<img src=>", "<audio></audio>", "<br>", "<button></button>", 
+  "<details></details>", "<fieldset></fieldset>", "<footer></footer>", "<form></form>", 
+  "<header></header>", "<i></i>", "<iframe></iframe>", "<input type=>", "<legend></legend>", 
+  "<li></li>", "<link>", "<radio>", "<checkbox>", "<nav></nav>", "<option></option>", 
+  "<p></p>", "<style></style>", "<section></section>", "<strong></strong>", 
+  "<script>/script", "<table></table>", "<tr></tr>", "<marquee></marquee>", 
+  "<textarea></textarea>", "<th></th>", "<time></time>", "<ul></ul>", "<video></video>", 
+  "<h5></h5>", "<u></u>", "<thead></thead>", "<small></small>", "<svg></svg>", "<path></path>", 
+  "<article></article>", "<aside></aside>", "<canvas></canvas>", "<main></main>", "<map></map>", 
+  "<picture></picture>", "<progress></progress>", "<blockquote></blockquote>", 
+  "<cite></cite>", "<code></code>", "<abbr></abbr>", "<b></b>", "<em></em>", "<q></q>",
+"{}","[]","()","h1{}","h2{}","h3{}","h4{}",
+":","tittle{}","body{}","head{}",";",
+"selection{}","opption{}","img{}","video{}",
+"table{}","tr{}","td{}","span{}",
+"button{}","from{}","input{}","filedset{}",
+"red", "blue","green","lightgreen",
+"gray","pink","white","black",
+"skyblue","solid","10px","transprant",
+"none","align-content:", "align-items:", "align-self:", "animation:", "animation-delay", 
+  "animation-direction:", "background:", "background-color:", "background-image:", 
+  "border:", "border-top-left-radius:", "border-top-right-radius:", "border-bottom-left-radius:", 
+  "border-bottom-right-radius:", "color:", "content", "display:block;", "display:flex;", 
+  "font-family:", "font-size:", "font-style:", "height:", "width:", "margin:", "margin-top:", 
+  "margin-bottom", "margin-left", "margin-right", "padding", "rotate", "text-align", 
+  "transform", "z-index", "@keyframes", "translateX", "translate", "linear infinite", 
+  "font-weight", "justify-content", "flex-wrap", "grid-template-areas", 
+  "grid-template-rows", "grid-template-columns", "gap", "row-gap", "column-gap", 
+  "box-shadow", "text-shadow", "position", "top:", "bottom:", "left:", "right:", 
+  "overflow", "opacity", "visibility", "clip-path",
+ ".getElementById",".addEventListener",
+        "function", "const", "let", "variable", "array", "object", "class", "JavaScript", 
+  "HTML", "CSS", "property", "method", "event", "listener", "syntax", "value", 
+  "element", "attribute", "string", "number", "boolean", "loop", "condition", "DOM", 
+  "node", "parent", "child", "sibling", "async", "await", "promise", "callback", 
+  "addEventListener", "querySelector", "getElementById", "setTimeout", "setInterval", 
+  "JSON", "localStorage", "sessionStorage", "fetch", "axios", "new", "prototype", 
+  "this", "return", "try", "catch", "throw", "debugger", "break", "continue", 
+  "switch", "case", "default", "forEach", "map", "filter", "reduce", "sort", 
+  "reverse", "push", "pop", "shift", "unshift", "indexOf", "includes", "isNaN", 
+  "parseInt", "parseFloat", "Math.random", "Math.floor", "Math.ceil", "Math.round", 
+  "console.log", "alert", "confirm", "prompt", "window", "document"
+   ];
+
+        editor.addEventListener('input', (e) => {
+            const inputText = editor.value;
+            const cursorPosition = editor.selectionStart;
+            const lastWord = inputText.substring(0, cursorPosition).split(/\s|\n/).pop();
+
+            const filteredSuggestions = suggestions.filter(s => s.startsWith(lastWord));
+
+            suggestionBox.innerHTML = '';
+            if (filteredSuggestions.length > 0) {
+                filteredSuggestions.forEach(suggestion => {
+                    const suggestionDiv = document.createElement('div');
+                    suggestionDiv.textContent = suggestion;
+                    suggestionDiv.addEventListener('click', () => {
+                        const beforeCursor = inputText.substring(0, cursorPosition - lastWord.length);
+                        const afterCursor = inputText.substring(cursorPosition);
+                        editor.value = `${beforeCursor}${suggestion}${afterCursor}`;
+                        suggestionBox.innerHTML = '';
+                        editor.focus();
+                        editor.selectionStart = editor.selectionEnd = beforeCursor.length + suggestion.length;
+                    });
+                    suggestionBox.appendChild(suggestionDiv);
+                });
+            }
+        });
+
+           
+           
+function toggleSuggestionsBox(show) {
+    const suggestionBox = document.getElementById('suggestionBox');
+    suggestionBox.style.display = show ? 'block' : 'none';
+}
+
+// HTML auto-fillup
+editor.addEventListener('input', (e) => {
+    const inputText = editor.value;
+    const cursorPosition = editor.selectionStart;
+    const lastWord = inputText.substring(0, cursorPosition).split(/\s|\n/).pop();
+
+    const filteredSuggestions = suggestions.filter(s => s.startsWith(lastWord));
+
+    suggestionBox.innerHTML = '';
+    if (filteredSuggestions.length > 0) {
+        filteredSuggestions.forEach(suggestion => {
+            const suggestionDiv = document.createElement('div');
+            suggestionDiv.textContent = suggestion;
+            suggestionDiv.addEventListener('click', () => {
+                const beforeCursor = inputText.substring(0, cursorPosition - lastWord.length);
+                const afterCursor = inputText.substring(cursorPosition);
+                editor.value = `${beforeCursor}${suggestion}${afterCursor}`;
+                toggleSuggestionsBox(false);
+                editor.focus();
+                editor.selectionStart = editor.selectionEnd = beforeCursor.length + suggestion.length;
+            });
+            suggestionBox.appendChild(suggestionDiv);
+        });
+        toggleSuggestionsBox(true);
+    } else {
+        toggleSuggestionsBox(false);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
