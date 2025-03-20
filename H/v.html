@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Download Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .btn {
+            display: block;
+            width: 250px;
+            padding: 12px;
+            margin: 10px auto;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Universal File Downloader</h2>
+
+    <!-- Download Buttons -->
+    <button class="btn" onclick="downloadFile('sample.jpg', 'image.jpg')">Download Image</button>
+    <button class="btn" onclick="downloadFile('sample.mp4', 'video.mp4')">Download Video</button>
+    <button class="btn" onclick="downloadFile('sample.apk', 'app.apk')">Download App (APK)</button>
+
+    <script>
+        function downloadFile(fileUrl, fileName) {
+            const a = document.createElement("a");
+            a.href = fileUrl;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+
+</body>
+</html>
