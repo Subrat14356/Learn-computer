@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal Download Button</title>
+    <title>Universal File Downloader</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,19 +33,29 @@
 
     <h2>Universal File Downloader</h2>
 
-    <!-- Download Buttons -->
-    <button class="btn" onclick="downloadFile('sample.jpg', 'image.jpg')">Download Image</button>
-    <button class="btn" onclick="downloadFile('sample.mp4', 'video.mp4')">Download Video</button>
-    <button class="btn" onclick="downloadFile('app-debug.apk', 'app-debug.apk')">Download App (APK)</button>
+    <!-- Download Buttons (Replace URLs with actual file links) -->
+    <button class="btn" onclick="downloadFile('https://example.com/sample.jpg', 'image.jpg')">Download Image</button>
+    <button class="btn" onclick="downloadFile('https://example.com/sample.mp4', 'video.mp4')">Download Video</button>
+    <button class="btn" onclick="downloadFile('https://computernnote.netlify.app/h/appapp-debug.apk', 'app.apk')">Download App (APK)</button>
 
     <script>
         function downloadFile(fileUrl, fileName) {
-            const a = document.createElement("a");
-            a.href = fileUrl;
-            a.download = fileName;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            fetch(fileUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('File not found or server error');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const a = document.createElement("a");
+                a.href = URL.createObjectURL(blob);
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            })
+            .catch(error => alert(error.message));
         }
     </script>
 
